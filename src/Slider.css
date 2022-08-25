@@ -1,0 +1,46 @@
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%);
+}
+
+.range {
+  width: 500px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #ccc;
+}
+
+.slider-thumb {
+  background-color: lightseagreen;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 700;
+  font-size: 12px;
+  text-align: center;
+  transition: left 0.3s ease-in-out;
+}
+
+.active-range {
+  position: absolute;
+  background-color: rgb(26, 109, 105);
+  border-radius: 10px;
+  height: 100%;
+  width: 200px;
+  transition: width 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.slider-thumb > div {
+  background-color: lightseagreen;
+  border-radius: 50%;
+  height: 30px;
+  z-index: 2;
+}
