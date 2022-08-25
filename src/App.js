@@ -18,9 +18,11 @@ function App() {
 
   const handleThumbChange = (e) => {
     const relativePosition = e.clientX - range?.MIN;
-    thumbRef.current.style.left =
-      roundToNearest(relativePosition, STEP_WIDTH) - THUMB_SIZE / 2 + "px";
-    setValue(relativePosition, STEP_WIDTH);
+    if (!isNaN(relativePosition)) {
+      thumbRef.current.style.left =
+        roundToNearest(relativePosition, STEP_WIDTH) - THUMB_SIZE / 2 + "px";
+      setValue(relativePosition, STEP_WIDTH);
+    }
   };
 
   useEffect(() => {
@@ -48,7 +50,6 @@ function App() {
   useEffect(() => {
     if (range) {
       rangeRef.current.addEventListener("click", (e) => {
-        console.log(1)
         handleThumbChange(e);
       });
     }
@@ -59,11 +60,11 @@ function App() {
       draggableRef.current = value;
     }
     thumbRef.current.addEventListener("mousedown", function (e) {
-      setDraggable(true);
-      handleThumbChange(e);
+      draggableRef.current = true;
     });
-    document.addEventListener("mouseup", function () {
+    document.addEventListener("mouseup", function (e) {
       setDraggable(false);
+      handleThumbChange(e);
     });
     return () => {
       thumbRef.current.removeEventListener("mousedown", function () {
