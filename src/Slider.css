@@ -26,6 +26,7 @@
   font-size: 12px;
   text-align: center;
   transition: left 0.3s ease-in-out;
+  pointer-events: none;;
 }
 
 .active-range {

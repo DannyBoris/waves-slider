@@ -48,6 +48,7 @@ function App() {
   useEffect(() => {
     if (range) {
       rangeRef.current.addEventListener("click", (e) => {
+        console.log(1)
         handleThumbChange(e);
       });
     }
